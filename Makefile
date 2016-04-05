@@ -4,22 +4,18 @@ PACKAGE=https://github.com/xenserver/xe-guest-utilities/archive/$(FILENAME)
 
 IMAGE=klowner/rancher-xe-guest-tools
 
-xen:
+xen: dist
 	docker run --rm -w /tmp \
 		-v $(PWD)/dist:/dist \
 		-v $(PWD)/assets:/assets:ro \
 		iron/go:dev sh /assets/build.sh
-xen2:
-	docker run --rm -w /build -v $(PWD)/build:/build iron/go:dev sh -c "\
-		wget -c $(PACKAGE) &&\
-		tar xzf $(FILENAME) &&\
-		cd xe-guest-utilities-$(VERSION) && \
-		make build && \
-		cp xe-guest-utilities-$(VERSION)/build/stage ./ \
-		"
 
 build: xen Dockerfile
 	docker build -t $(IMAGE):$(VERSION) .
 	docker tag $(IMAGE):$(VERSION) $(IMAGE):latest
+
+push: build
+	docker push $(IMAGE):$(VERSION)
+	docker push $(IMAGE):latest
 
 default: build

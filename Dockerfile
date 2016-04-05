@@ -1,4 +1,7 @@
 FROM iron/go:latest
 MAINTAINER Mark Riedesel <mark@klowner.com>
 WORKDIR /
-COPY dist/ /
+COPY dist /
+COPY assets/entrypoint.sh /
+CMD "/entrypoint.sh"
+#ENTRYPOINT ["/entrypoint.sh"]
