@@ -4,4 +4,3 @@ WORKDIR /
 COPY dist /
 COPY assets/entrypoint.sh /
 CMD "/entrypoint.sh"
-#ENTRYPOINT ["/entrypoint.sh"]
