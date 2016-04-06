@@ -7,6 +7,7 @@ xe-guest-utils:
     - /dev:/dev:ro
     - /lib/modules:/lib/modules:ro
     - /etc/udev/rules.d/:/host/etc/udev/rules.d/
+    - /etc/lsb-release:/etc/lsb-release
   restart: always
   net: host
   ipc: host
