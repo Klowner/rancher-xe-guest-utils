@@ -2,7 +2,7 @@ VERSION=6.6.80
 FILENAME=v$(VERSION).tar.gz
 PACKAGE=https://github.com/xenserver/xe-guest-utilities/archive/$(FILENAME)
 
-IMAGE=klowner/rancher-xe-guest-tools
+IMAGE=klowner/rancher-xe-guest-utils
 
 xen: dist
 	docker run --rm -w /tmp \
