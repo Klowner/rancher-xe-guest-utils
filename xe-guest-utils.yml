@@ -3,11 +3,12 @@ xe-guest-utils:
   privileged: true
   labels:
     - io.rancher.os.scope=system
+    - io.rancher.os.after=console
   volumes:
-    - /dev:/dev:ro
-    - /lib/modules:/lib/modules:ro
-    - /etc/udev/rules.d/:/host/etc/udev/rules.d/
-    - /etc/lsb-release:/etc/lsb-release
+    - "/dev:/dev:ro"
+    - "/lib/modules:/lib/modules:ro"
+    - "/etc/lsb-release:/etc/lsb-release:ro"
+    - "/etc/udev/rules.d/:/host/etc/udev/rules.d/"
   restart: always
   net: host
   ipc: host
