@@ -4,10 +4,11 @@ xe-guest-utils:
   labels:
     - io.rancher.os.scope=system
     - io.rancher.os.after=console,docker,udev,syslog
+  volumes-from:
+    - "all-volumes"
   volumes:
     - "/dev:/dev:ro"
     - "/lib/modules:/lib/modules:ro"
-    - "/etc/lsb-release:/etc/lsb-release:ro"
     - "/etc/udev/rules.d/:/host/etc/udev/rules.d/"
   restart: always
   net: host
