@@ -4,13 +4,13 @@ PACKAGE=https://github.com/xenserver/xe-guest-utilities/archive/$(FILENAME)
 
 IMAGE=klowner/rancher-xe-guest-utils
 
-xen: dist
+dist:
 	docker run --rm -w /tmp \
 		-v $(PWD)/dist:/dist \
 		-v $(PWD)/assets:/assets:ro \
 		iron/go:dev sh /assets/build.sh
 
-build: xen Dockerfile
+build: dist Dockerfile
 	docker build -t $(IMAGE):$(VERSION) .
 	docker tag $(IMAGE):$(VERSION) $(IMAGE):latest
 

@@ -1,4 +1,4 @@
-xe-guest-tools:
+xe-guest-utils:
   image: klowner/rancher-xe-guest-utils:6.6.80
   privileged: true
   labels:
