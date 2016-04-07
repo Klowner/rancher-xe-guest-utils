@@ -1,6 +1,8 @@
 # rancher-xe-guest-utils
 RancherOS Xen Guest Utilities
 
+**It looks as though stats reporting works, but reboot/shutdown doesn't, I'm currently investigating this**
+
 ## Instructions
 The service can be added directly to your `cloud-config.yml`
 ```yml
